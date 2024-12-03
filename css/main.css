@@ -1,0 +1,331 @@
+/* I fixed alignment of some items that didn't look well on smaller screens.
+The iframe with the video on gear page wasn't looking good
+I also fixed the img in the figure on home page. I also fixed the recommendation to make the
+opacity of the background on the nav bar higher when the user scrolls. */
+
+html,
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+/* Global */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+  column-gap: 25px;
+}
+
+.grid-container > * {
+  grid-column: span 12;
+}
+
+/* Navigation Bar */
+
+body.scrolled .nav-container {
+  background-color: rgba(10, 10, 10, 0.5);
+}
+
+.nav-button {
+  cursor: pointer;
+}
+
+.nav-theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.nav-theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.nav-theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.nav-theme-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.nav-theme-slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .nav-theme-slider {
+  background-color: rgb(103, 103, 103);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgb(103, 103, 103);
+}
+
+input:checked + .nav-theme-slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.nav-theme-slider {
+  border-radius: 34px;
+}
+
+.nav-theme-slider:before {
+  border-radius: 50%;
+}
+
+.nav-theme__button div {
+  background-color: #fff;
+  border-radius: 100%;
+}
+
+.nav-container {
+  transition: background-color 1s ease-in-out;
+  position: fixed;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 10px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@media screen and (min-width: 800px) {
+  .nav-container {
+    justify-content: flex-start;
+    gap: 50px;
+  }
+}
+
+.nav-logo {
+  width: 150px;
+  object-fit: cover;
+}
+
+.nav-container > .nav-button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: white;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.heading {
+  color: gray;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 25px;
+}
+
+/* Footer */
+footer {
+  position: relative;
+  background-color: #333;
+  color: #fff;
+  padding: 40px;
+  text-align: center;
+  bottom: 0px;
+}
+
+/* Home */
+.home {
+  margin-top: 75vh;
+}
+
+#hero-video {
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  height: 75vh;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 800px) {
+  .home-welcome__p {
+    grid-column: span 7;
+  }
+
+  .home-welcome__figure {
+    grid-column: span 5;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .home-welcome__p {
+    grid-column: span 6;
+  }
+
+  .home-welcome__figure {
+    grid-column-start: 8;
+    grid-column-end: 12;
+  }
+}
+
+.home-welcome__img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.home-content__img1,
+.home-content__img2,
+.home-content__img3 {
+  object-fit: cover;
+  width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  .home-content__img1 {
+    grid-column: span 6;
+  }
+
+  .home-content__p1 {
+    grid-column: span 6;
+  }
+
+  .home-content__img2 {
+    grid-column: span 6;
+  }
+
+  .home-content__p2 {
+    grid-column: span 7;
+  }
+
+  .home-content__img3 {
+    grid-column: span 6;
+  }
+
+  .home-content__p3 {
+    grid-column: span 6;
+  }
+}
+
+/* Form */
+.form {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+}
+
+.form button {
+  padding: 10px;
+  background-color: rgb(125, 125, 125);
+  border: 1px solid rgb(125, 125, 125);
+
+  border-radius: 5px;
+}
+
+.form input {
+  padding: 12px;
+  min-width: 40vw;
+}
+
+/* Basics */
+.basics {
+  margin-top: 150px;
+  display: none;
+}
+
+.basics-content__img1 {
+  width: 100%;
+  object-fit: cover;
+}
+
+.basics-video__iframe {
+  object-fit: cover;
+  width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  .basics-content__p2 {
+    grid-column: span 6;
+  }
+
+  .basics-content__img1 {
+    grid-column: span 6;
+  }
+
+  .basics-video__p {
+    grid-column: span 6;
+  }
+
+  .basics-video__iframe {
+    grid-column: span 6;
+  }
+}
+
+/* Gear */
+.gear {
+  margin-top: 150px;
+  display: none;
+}
+
+.gear-content__img1 {
+  object-fit: cover;
+  width: 100%;
+}
+
+.gear-content-item {
+  border: 2px solid gray;
+  border-radius: 5px;
+  grid-column: span 6;
+  margin-top: 20px;
+}
+
+.gear-content-item * {
+  margin: 15px;
+}
+
+.gear-content-item__img {
+  width: 75%;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 800px) {
+  .gear-content__img1 {
+    grid-column: span 6;
+  }
+
+  .gear-content__p2 {
+    grid-column: span 6;
+  }
+
+  .gear-content-item {
+    grid-column: span 4;
+  }
+}
